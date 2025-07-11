@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
               </Anchor>
 
               <Anchor
-                href="https://github.com"
+                href="https://github.com/mtrebecca/Marvel-Heroes"
                 target="_blank"
                 rel="noopener noreferrer"
                 size="sm"
