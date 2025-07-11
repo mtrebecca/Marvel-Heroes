@@ -4,7 +4,6 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
-// Format date helper
 export const formatDate = (dateString: string): string => {
   return new Date(dateString).toLocaleDateString("pt-BR", {
     year: "numeric",
@@ -13,13 +12,11 @@ export const formatDate = (dateString: string): string => {
   });
 };
 
-// Truncate text helper
 export const truncateText = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength) + "...";
 };
 
-// Debounce utility
 export const debounce = <T extends (...args: unknown[]) => unknown>(
   func: T,
   delay: number
@@ -32,7 +29,6 @@ export const debounce = <T extends (...args: unknown[]) => unknown>(
   };
 };
 
-// Theme classes
 export const themeClasses = {
   light: {
     bg: "bg-gray-50",
@@ -52,7 +48,6 @@ export const themeClasses = {
   },
 };
 
-// Animation classes
 export const animations = {
   fadeIn: "animate-fade-in",
   slideUp: "animate-slide-up",
@@ -61,7 +56,6 @@ export const animations = {
   spin: "animate-spin",
 };
 
-// Marvel-themed gradient classes
 export const marvelGradients = {
   hero: "bg-gradient-to-r from-red-600 via-yellow-500 to-blue-600",
   ironman: "bg-gradient-to-r from-red-500 to-yellow-500",
@@ -71,7 +65,6 @@ export const marvelGradients = {
   spiderman: "bg-gradient-to-r from-red-600 to-blue-600",
 };
 
-// Responsive breakpoints
 export const breakpoints = {
   sm: "640px",
   md: "768px",

@@ -20,17 +20,17 @@ import HeroCard from "./HeroCard";
 
 export const HeroList: React.FC = () => {
   const [localSearchTerm, setLocalSearchTerm] = useState("");
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "default">("default");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc" | "default">(
+    "default"
+  );
 
   const { heroes, loading, error, pagination, fetchHeroes, resetFilters } =
     useHeroes();
 
   const { viewMode } = useViewMode();
 
-  // Aplicar busca local primeiro
   const searchedHeroes = useLocalSearch(heroes, localSearchTerm);
 
-  // Aplicar ordenação depois da busca
   const filteredHeroes = useMemo(() => {
     if (sortOrder === "default") {
       return searchedHeroes;
@@ -38,9 +38,9 @@ export const HeroList: React.FC = () => {
 
     return [...searchedHeroes].sort((a, b) => {
       if (sortOrder === "asc") {
-        return a.name.localeCompare(b.name, 'pt-BR');
+        return a.name.localeCompare(b.name, "pt-BR");
       } else {
-        return b.name.localeCompare(a.name, 'pt-BR');
+        return b.name.localeCompare(a.name, "pt-BR");
       }
     });
   }, [searchedHeroes, sortOrder]);
@@ -178,15 +178,20 @@ export const HeroList: React.FC = () => {
         <motion.div variants={itemVariants}>
           <Group justify="space-between" align="center">
             <Text size="sm" c="dimmed">
-              {filteredHeroes.length} {filteredHeroes.length === 1 ? 'herói encontrado' : 'heróis encontrados'}
+              {filteredHeroes.length}{" "}
+              {filteredHeroes.length === 1
+                ? "herói encontrado"
+                : "heróis encontrados"}
             </Text>
-            
+
             <Group gap="sm">
               <ArrowUpDown size={16} style={{ color: "var(--marvel-red)" }} />
               <Select
                 placeholder="Ordenar por"
                 value={sortOrder}
-                onChange={(value) => setSortOrder(value as "asc" | "desc" | "default")}
+                onChange={(value) =>
+                  setSortOrder(value as "asc" | "desc" | "default")
+                }
                 data={[
                   { value: "default", label: "Ordem padrão" },
                   { value: "asc", label: "A - Z" },
@@ -206,14 +211,6 @@ export const HeroList: React.FC = () => {
             </Group>
           </Group>
         </motion.div>
-
-        {/* Filters */}
-        {/* <motion.div variants={itemVariants}>
-          <HeroFiltersComponent
-            filters={filters}
-            onFiltersChange={handleFiltersChange}
-          />
-        </motion.div> */}
 
         <motion.div variants={itemVariants}>
           {loading ? (
