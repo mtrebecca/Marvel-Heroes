@@ -1,4 +1,4 @@
-# 🦸‍♂️ Marvel Heroes App
+# 🦸‍♂️ Marvel App
 
 Aplicação moderna em React + TypeScript para explorar o universo Marvel via API oficial. Visualize heróis, veja detalhes, adicione aos favoritos e muito mais.
 
