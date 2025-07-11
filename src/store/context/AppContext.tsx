@@ -2,16 +2,13 @@ import React, { createContext, useContext, useReducer, ReactNode } from 'react';
 import { AppState, AppAction } from '../../types';
 import { appReducer, initialState } from '../reducers/appReducer';
 
-// Context type
 interface AppContextType {
   state: AppState;
   dispatch: React.Dispatch<AppAction>;
 }
 
-// Create context
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-// Provider component
 interface AppProviderProps {
   children: ReactNode;
 }
@@ -31,7 +28,6 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   );
 };
 
-// Custom hook to use the context
 export const useApp = (): AppContextType => {
   const context = useContext(AppContext);
   if (!context) {
