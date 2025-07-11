@@ -1,6 +1,5 @@
 import { AppState, AppAction } from "../../types";
 
-// Initial state
 export const initialState: AppState = {
   heroes: [],
   loading: false,
@@ -22,7 +21,6 @@ export const initialState: AppState = {
   },
 };
 
-// App reducer
 export const appReducer = (state: AppState, action: AppAction): AppState => {
   switch (action.type) {
     case "SET_LOADING":
