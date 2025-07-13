@@ -4,10 +4,8 @@ import { MarvelApiResponse, MarvelCharacter, HeroFilters } from "../types";
 
 const BASE_URL = "https://gateway.marvel.com/v1/public";
 
-const PUBLIC_KEY =
-  import.meta.env.VITE_MARVEL_PUBLIC_KEY || "";
-const PRIVATE_KEY =
-  import.meta.env.VITE_MARVEL_PRIVATE_KEY || "";
+const PUBLIC_KEY = import.meta.env.VITE_MARVEL_PUBLIC_KEY || "";
+const PRIVATE_KEY = import.meta.env.VITE_MARVEL_PRIVATE_KEY || "";
 
 const cache = new Map<string, { data: unknown; timestamp: number }>();
 const CACHE_DURATION = 30000;
